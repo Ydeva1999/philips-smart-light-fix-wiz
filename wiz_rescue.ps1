@@ -11,7 +11,7 @@
 #>
 
 Write-Host "================================================================" -ForegroundColor Cyan
-Write-Host "     ⚡ WiZ-Rescue: 1-Click Auto-Fix & Cloud Activation Engine   " -ForegroundColor Yellow
+Write-Host "     ⚡ Philips Smart Light (WiZ) 1-Click Auto-Fix Engine   " -ForegroundColor Yellow
 Write-Host "================================================================" -ForegroundColor Cyan
 Write-Host ""
 

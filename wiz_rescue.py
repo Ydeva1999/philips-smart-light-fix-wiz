@@ -194,7 +194,7 @@ def main():
     args = parser.parse_args()
 
     print(f"{Colors.CYAN}{'='*64}{Colors.RESET}")
-    print(f"{Colors.YELLOW}{Colors.BOLD}     ⚡ WiZ-Rescue: 1-Click Auto-Fix & Cloud Activation Engine{Colors.RESET}")
+    print(f"{Colors.YELLOW}{Colors.BOLD}     ⚡ Philips Smart Light (WiZ) 1-Click Auto-Fix Engine{Colors.RESET}")
     print(f"{Colors.CYAN}{'='*64}{Colors.RESET}\n")
 
     devices = discover_wiz_lights(timeout=3.0, target_ip=args.ip)

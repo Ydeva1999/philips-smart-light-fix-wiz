@@ -1,4 +1,4 @@
-# ⚡ WiZ-Rescue: 1-Click Auto-Discovery & Activation Engine
+# ⚡ Philips Smart Light Fix (WiZ): 1-Click Auto-Activation Engine
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Platform: Windows | macOS | Linux | Android Termux](https://img.shields.io/badge/Platform-Cross--Platform-blue.svg)]()
@@ -8,7 +8,7 @@
 
 > **⚠️ Don't return your Philips WiZ lights to Amazon or Flipkart!**  
 > If your newly purchased Philips WiZ Smart LED Batten or Bulb connects to your Wi-Fi router but remains permanently stuck on **"Devices offline. Check your connection and try again"**, your hardware is completely healthy. You are experiencing an unhandled Dart type-cast bug in the official WiZ Connected v2 Flutter app.  
-> **WiZ-Rescue** automatically discovers, repairs, and cloud-activates orphaned lights in **one click** over local UDP without requiring resets, developer mode, or third-party cloud bridges.
+> **This tool** automatically discovers, repairs, and cloud-activates orphaned lights in **one click** over local UDP without requiring resets, developer mode, or third-party cloud bridges.
 
 ---
 
@@ -52,22 +52,22 @@ ap pairing error: type 'SendingEncryptedCredential' is not a subtype of type 'Co
 
 ---
 
-## 🚀 The Solution: How WiZ-Rescue Works
+## 🚀 The Solution: How It Works
 
-WiZ devices run a lightweight, unencrypted local JSON-RPC server listening on UDP port `38899`. **WiZ-Rescue** bypasses the defective mobile onboarding pipeline:
+WiZ devices run a lightweight, unencrypted local JSON-RPC server listening on UDP port `38899`. This tool bypasses the defective mobile onboarding pipeline:
 
 ```
-+------------------+         Local UDP Broadcast (:38899)        +----------------------+
-|                  | ----------------------------------------->  |                      |
-|    WiZ-Rescue    |          getSystemConfig Probe              |  Healthy WiZ Light   |
-|   (PC / Phone)   | <-----------------------------------------  |   (homeId: 12345678) |
-|                  |            Extracts active Home ID          +----------------------+
-|                  |
-|                  |         Direct Unicast UDP (:38899)         +----------------------+
-|                  | ----------------------------------------->  |                      |
-|                  |       setSystemConfig: {"homeId": ...}      |  Orphaned WiZ Light  |
-|                  |          setPilot: Visual Handshake         |    (homeId: 0 -> OK) |
-+------------------+ <-----------------------------------------  +----------------------+
++-------------------+         Local UDP Broadcast (:38899)        +----------------------+
+|                   | ----------------------------------------->  |                      |
+| Auto-Fix Tool     |          getSystemConfig Probe              |  Healthy WiZ Light   |
+| (PC / Phone)      | <-----------------------------------------  |   (homeId: 12345678) |
+|                   |            Extracts active Home ID          +----------------------+
+|                   |
+|                   |         Direct Unicast UDP (:38899)         +----------------------+
+|                   | ----------------------------------------->  |                      |
+|                   |       setSystemConfig: {"homeId": ...}      |  Orphaned WiZ Light  |
+|                   |          setPilot: Visual Handshake         |    (homeId: 0 -> OK) |
++-------------------+ <-----------------------------------------  +----------------------+
 ```
 
 1. **Auto-Discovery:** Broadcasts `getSystemConfig` across your local subnet (`/24`) and inspects the local ARP table to penetrate router client isolation.
@@ -106,8 +106,8 @@ python3 wiz_rescue.py --ip 192.168.1.50
 No PC needed! You can rescue lights directly from your Android phone connected to home Wi-Fi:
 ```bash
 pkg install python git
-git clone https://github.com/Ydeva1999/WiZ-Rescue.git
-cd WiZ-Rescue
+git clone https://github.com/Ydeva1999/philips-smart-light-fix-wiz.git
+cd philips-smart-light-fix-wiz
 python wiz_rescue.py
 ```
 
